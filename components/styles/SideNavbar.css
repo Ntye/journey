@@ -1,0 +1,59 @@
+/* src/SideNavbar.css */
+.side-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: #EAEAF6;
+    transition: width 0.5s ease;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.collapsed {
+    width: 60px;
+}
+
+.expanded {
+    width: 150px;
+}
+
+.toggle-button {
+    background-color: #EAEAF6;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.nav-menu {
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.link {
+    color: black;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    width: 100%;
+}
+
+.link-text {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100px;
+}
+
+.link:hover {
+    color: #9c4908;
+    background-color: aliceblue;
+}
