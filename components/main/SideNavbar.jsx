@@ -4,16 +4,11 @@ import '../styles/SideNavbar.css';
 import { FaBars } from 'react-icons/fa';
 import Link from "next/link";
 
-const SideNavbar = ({navItems}) => {
-  const [isExpanded, setIsExpanded] = useState(false);
-
-  const toggleNavbar = () => {
-    setIsExpanded(!isExpanded);
-  };
+const SideNavbar = ({navItems, onToggle, isExpanded}) => {
 
   return (
     <div className={`side-navbar ${isExpanded ? 'expanded' : 'collapsed'}`}>
-      <button className="toggle-button" onClick={toggleNavbar}>
+      <button className="toggle-button" onClick={onToggle}>
         {isExpanded ?
           <FaBars/> : <FaBars/>
         }
