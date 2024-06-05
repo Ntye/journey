@@ -69,7 +69,7 @@ export default function RootLayout({ children }) {
 
       <div className={`body ${inter.className} ${isExpanded ? 'body-expanded' : 'body-collapsed'}`}>
         <div className="horizontal-navbar">
-          <Link href="/profile" className='link-deco'>Profile</Link>
+          <Link href="/profile">Profile</Link>
         </div>
         {children}
       </div>

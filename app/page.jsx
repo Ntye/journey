@@ -1,6 +1,6 @@
 'use client'
 import Link from "next/link";
-import React, {useState} from "react";
+import React from "react";
 import Image from "next/image";
 
 import { Noticia_Text } from 'next/font/google';
@@ -15,20 +15,19 @@ const myFont = Noticia_Text({
 export default function Home() {
 
   return (
-    <main >
-      {/*className="flex min-h-screen flex-col items-center justify-between p-24"*/}
+    <main className="main"
+      style={{
+      backgroundImage: `url("/Land.svg")`,
+      height: "100vh",
+      backgroundRepeat: "no-repeat",
+      backgroundSize: "970px",
+    }}
+    >
       <div className="header">
         <div className="header-text">
           <span className={`${myFont.className} heading`}>Travel Simplified</span> <br/>
           <div className="d-flex flex-row">Experiences <div>Amplified</div></div>
         </div>
-        <Image
-          src="/Landing.svg"
-          alt="Hey"
-          width={650}
-          height={300}
-          className="landing-img"
-        />
       </div>
 
       HELLLLLLLOOOOOOOOOOOOOOOOOOOOOOOOOO The WORLDDDDDDDDDDDDDDDD
