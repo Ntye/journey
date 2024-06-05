@@ -10,7 +10,10 @@ const SideNavbar = ({navItems, onToggle, isExpanded}) => {
     <div className={`side-navbar ${isExpanded ? 'expanded' : 'collapsed'}`}>
       <button className="toggle-button" onClick={onToggle}>
         {isExpanded ?
-          <FaBars/> : <FaBars/>
+          <div className="link-text">
+            Menu <FaBars/>
+          </div>
+          : <FaBars/>
         }
       </button>
       <nav className="nav-menu">

@@ -20,13 +20,23 @@ export default function Home() {
       backgroundImage: `url("/Land.svg")`,
       height: "100vh",
       backgroundRepeat: "no-repeat",
-      backgroundSize: "970px",
+      backgroundSize: "1000px",
     }}
     >
       <div className="header">
+        <Image
+          src="/Logo.svg"
+          alt="YO"
+          className="logo-land"
+          width={80}
+          height={60}
+        />
         <div className="header-text">
           <span className={`${myFont.className} heading`}>Travel Simplified</span> <br/>
-          <div className="d-flex flex-row">Experiences <div>Amplified</div></div>
+          <div className=" d-flex flex-row space-x-3">
+            <span className={`${myFont.className} heading`}>Experiences </span>{'  '}
+            <span className={`${myFont.className} heading`}> Amplified</span>
+          </div>
         </div>
       </div>
 
