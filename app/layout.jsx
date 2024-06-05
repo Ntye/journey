@@ -6,16 +6,18 @@ import './styles/globals.css';
 import SideNavbar from "../components/main/SideNavbar";
 import React, {useState} from "react";
 
-import { FaHome, FaInfoCircle, FaServicestack, FaEnvelope } from 'react-icons/fa';
+import { FaHome, FaInfoCircle, FaServicestack, FaEnvelope, FaUser } from 'react-icons/fa';
 import Link from "next/link";
+import Image from "next/image";
+import {Button} from "react-bootstrap";
 
 const inter = Inter({ subsets: ['latin'] });
 
 function stringAvatar(name) {
   return {
     sx: {
-      width: 35,
-      height: 35,
+      width: 30,
+      height: 30,
       bgcolor: "#2e1aa8",
     },
     children: `${name.split(' ')[0][0]}${name.split(' ')[1][0]}`,
@@ -71,12 +73,28 @@ export default function RootLayout({ children }) {
 
       <div className={`body ${inter.className} ${isExpanded ? 'body-expanded' : 'body-collapsed'}`}>
         <div className="horizontal-navbar">
-          <Link href="/profile" className="d-flex flex-column align-items-center">
-            <Avatar {...stringAvatar("Ntye Nina Laissa")}/>
-            Profile
+          <Link href="/profile" className="element">
+            <Button className="login-button">
+              <FaUser /> Profile
+            </Button>
+
+            {/*<Avatar {...stringAvatar("Ntye Nina Laissa")}/>*/}
+            {/*Profile*/}
+          </Link>
+
+          <Link href="/">
+            <Image
+              src="/Logo.svg"
+              alt="YO"
+              className="element"
+              width={100}
+              height={100}
+            />
           </Link>
         </div>
-        {children}
+        <div className="inner-element">
+          {children}
+        </div>
       </div>
     </body>
     </html>

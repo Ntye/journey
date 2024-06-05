@@ -3,11 +3,16 @@ import Link from "next/link";
 import React from "react";
 import Image from "next/image";
 
-import { Noticia_Text } from 'next/font/google';
+import {Noticia_Text, Oleo_Script_Swash_Caps} from 'next/font/google';
 
 import './styles/landing.css';
 
 const myFont = Noticia_Text({
+  subsets: ["latin"],
+  weight: "400",
+})
+
+const myFont1 = Oleo_Script_Swash_Caps({
   subsets: ["latin"],
   weight: "700",
 })
@@ -20,28 +25,25 @@ export default function Home() {
       backgroundImage: `url("/Land.svg")`,
       height: "100vh",
       backgroundRepeat: "no-repeat",
-      backgroundSize: "1000px",
+      backgroundSize: "1024px",
     }}
     >
       <div className="header">
-        <Image
-          src="/Logo.svg"
-          alt="YO"
-          className="logo-land"
-          width={80}
-          height={60}
-        />
         <div className="header-text">
           <span className={`${myFont.className} heading`}>Travel Simplified</span> <br/>
-          <div className=" d-flex flex-row space-x-3">
+          <div className=" d-flex flex-row space-x-3 bot-text">
             <span className={`${myFont.className} heading`}>Experiences </span>{'  '}
-            <span className={`${myFont.className} heading`}> Amplified</span>
+            <span className={`${myFont1.className} heading1`}> Amplified</span>
           </div>
         </div>
+        <div className="description">
+          <span className={`${myFont.className} text-description`}>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dignissim dolor magna, sed volutpat
+            libero ultricies quis. Phasellus ac malesuada massa. Donec at pharetra enim. Nunc lobortis ex et
+            eleifend condimentum.
+          </span>
+        </div>
       </div>
-
-      HELLLLLLLOOOOOOOOOOOOOOOOOOOOOOOOOO The WORLDDDDDDDDDDDDDDDD
-      <Link href="/auth" className={`${myFont.className} hey`} >Signup</Link>
     </main>
   );
 }
