@@ -1,6 +1,7 @@
 'use client'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Inter, Alex_Brush, Noticia_Text } from 'next/font/google';
+import Avatar from '@mui/material/Avatar';
 import './styles/globals.css';
 import SideNavbar from "../components/main/SideNavbar";
 import React, {useState} from "react";
@@ -10,16 +11,16 @@ import Link from "next/link";
 
 const inter = Inter({ subsets: ['latin'] });
 
-// const myFont = Inter({
-//   subsets: ["latin"],
-//   variable: "--my-font-family",
-// })
-
-// export const myfont = Alex_Brush({
-//   subsets: ["latin"],
-//   weight: "400",
-//   variable: "myfont",
-// })
+function stringAvatar(name) {
+  return {
+    sx: {
+      width: 35,
+      height: 35,
+      bgcolor: "#2e1aa8",
+    },
+    children: `${name.split(' ')[0][0]}${name.split(' ')[1][0]}`,
+  };
+}
 
 // export const metadata = {
 //   title: 'VSV',
@@ -59,6 +60,7 @@ export default function RootLayout({ children }) {
       "link": "/auth"
     }
   ]
+
   return (
     <html lang="en">
     <head>
@@ -69,7 +71,10 @@ export default function RootLayout({ children }) {
 
       <div className={`body ${inter.className} ${isExpanded ? 'body-expanded' : 'body-collapsed'}`}>
         <div className="horizontal-navbar">
-          <Link href="/profile">Profile</Link>
+          <Link href="/profile" className="d-flex flex-column align-items-center">
+            <Avatar {...stringAvatar("Ntye Nina Laissa")}/>
+            Profile
+          </Link>
         </div>
         {children}
       </div>
