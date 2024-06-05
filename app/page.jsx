@@ -31,7 +31,7 @@ export default function Home() {
       <div className="header">
         <div className="header-text">
           <span className={`${myFont.className} heading`}>Travel Simplified</span> <br/>
-          <div className=" d-flex flex-row space-x-3 bot-text">
+          <div className=" d-flex flex-row space-x-8 bot-text">
             <span className={`${myFont.className} heading`}>Experiences </span>{'  '}
             <span className={`${myFont1.className} heading1`}> Amplified</span>
           </div>
