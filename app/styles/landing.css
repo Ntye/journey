@@ -28,11 +28,6 @@
     align-items: center;
 }
 
-.inner-element {
-    /*padding-top: 60px;*/
-    /*padding-left: 90px;*/
-}
-
 .login-button:hover {
     background-color: #007bff;
     border: #007bff;
@@ -55,7 +50,7 @@
 }
 
 .heading {
-    font-size: 3.125rem;
+    font-size: 3.5rem;
     color: rgba(0, 0, 0, 0.6);
 }
 

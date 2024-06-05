@@ -92,7 +92,7 @@ export default function RootLayout({ children }) {
             />
           </Link>
         </div>
-        <div className="inner-element">
+        <div>
           {children}
         </div>
       </div>
