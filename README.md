@@ -43,7 +43,7 @@ For any questions or feedback, feel free to reach out:
 
 - Name: Ntye Ebo'o Nina Laissa
 - Email: ntye.nina@gmail.com
-- GitHub: Ntye [Ntye](https://www.github.com/Ntye)
+- GitHub: [Ntye](https://www.github.com/Ntye)
 
 ## Acknowledgments
 None Yet
