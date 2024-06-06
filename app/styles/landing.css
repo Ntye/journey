@@ -1,4 +1,8 @@
 .main {
+    background-image: url("/Land.svg");
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: 1024px;
     background-position: top right;
     margin-top: -50px;
 }
@@ -15,6 +19,7 @@
     margin-left: 65px;
     margin-right: 30px;
     margin-top: 10px;
+    z-index: 1000;
 }
 
 .login-button {
@@ -55,7 +60,7 @@
 }
 
 .heading1 {
-    font-size: 4.5rem;
+    font-size: 5.0rem;
     color: #3821CA;
 }
 
@@ -63,4 +68,15 @@
     width: 450px;
     font-size: 1rem;
     color: #505050;
+    height: 150px;
+}
+
+@media (max-width: 768px) {
+    .main {
+        background-size: 512px;
+    }
+
+    .horizontal-navbar {
+        margin-right: -25px;
+    }
 }

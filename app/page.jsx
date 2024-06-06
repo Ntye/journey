@@ -6,6 +6,7 @@ import Image from "next/image";
 import {Noticia_Text, Oleo_Script_Swash_Caps} from 'next/font/google';
 
 import './styles/landing.css';
+import {Button} from "react-bootstrap";
 
 const myFont = Noticia_Text({
   subsets: ["latin"],
@@ -20,14 +21,14 @@ const myFont1 = Oleo_Script_Swash_Caps({
 export default function Home() {
 
   return (
-    <main className="main"
-      style={{
-      backgroundImage: `url("/Land.svg")`,
-      height: "100vh",
-      backgroundRepeat: "no-repeat",
-      backgroundSize: "1024px",
-    }}
-    >
+    <main className="main">
+       {/*style={{*/}
+       {/*  backgroundImage: `url("/Land.svg")`,*/}
+       {/*  height: "100vh",*/}
+       {/*  backgroundRepeat: "no-repeat",*/}
+       {/*  backgroundSize: "1024px",*/}
+       {/*}}*/}
+
       <div className="header">
         <div className="header-text">
           <span className={`${myFont.className} heading`}>Travel Simplified</span> <br/>
@@ -37,11 +38,16 @@ export default function Home() {
           </div>
         </div>
         <div className="description">
-          <span className={`${myFont.className} text-description`}>
+          <span className={`${myFont.className}`}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dignissim dolor magna, sed volutpat
             libero ultricies quis. Phasellus ac malesuada massa. Donec at pharetra enim. Nunc lobortis ex et
             eleifend condimentum.
           </span>
+        </div>
+        <div>
+          <div>
+            <Button>Get Started</Button>
+          </div>
         </div>
       </div>
     </main>

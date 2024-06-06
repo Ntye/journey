@@ -58,6 +58,15 @@
     color: #9c4908; /* Set the hover color */
 }
 
+.lay {
+    background-color: #EAEAF6;
+    width: 650px;
+    margin-top: -50px;
+    margin-left: -75px;
+    padding-top: 70px;
+    height: 100vh;
+}
+
 .centered {
     display: flex;
     justify-content: center;

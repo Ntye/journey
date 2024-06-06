@@ -71,6 +71,7 @@ export default function RootLayout({ children }) {
     <body className={inter.className}>
       <SideNavbar navItems={navItems} isExpanded={isExpanded} onToggle={toggleNavbar}/>
 
+      {/*<div className="body">*/}
       <div className={`body ${inter.className} ${isExpanded ? 'body-expanded' : 'body-collapsed'}`}>
         <div className="horizontal-navbar">
           <Link href="/profile" className="element">
