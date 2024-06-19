@@ -1,7 +1,6 @@
 'use client'
 import Link from "next/link";
 import React from "react";
-import Image from "next/image";
 
 import {Noticia_Text, Oleo_Script_Swash_Caps} from 'next/font/google';
 
@@ -28,7 +27,6 @@ export default function Home() {
        {/*  backgroundRepeat: "no-repeat",*/}
        {/*  backgroundSize: "1024px",*/}
        {/*}}*/}
-
       <div className="header">
         <div className="header-text">
           <span className={`${myFont.className} heading`}>Travel Simplified</span> <br/>
