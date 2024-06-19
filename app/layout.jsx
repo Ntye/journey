@@ -1,6 +1,5 @@
 'use client'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Inter, Alex_Brush, Noticia_Text } from 'next/font/google';
 import Avatar from '@mui/material/Avatar';
 import './styles/globals.css';
 import SideNavbar from "../components/main/SideNavbar";
@@ -10,8 +9,6 @@ import { FaHome, FaInfoCircle, FaServicestack, FaEnvelope, FaUser } from 'react-
 import Link from "next/link";
 import Image from "next/image";
 import {Button} from "react-bootstrap";
-
-// const inter = Inter({ subsets: ['latin'] });
 
 function stringAvatar(name) {
   return {
@@ -64,6 +61,11 @@ export default function RootLayout({ children }) {
       <link rel="preconnect" href="https://fonts.googleapis.com"/>
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin/>
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Noticia+Text:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet"/>
+      <link href="https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps:wght@400;700&display=swap"
+            rel="stylesheet"/>
       <title>VSV</title>
     </head>
     <body className="inter">
