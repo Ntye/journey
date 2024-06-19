@@ -11,7 +11,7 @@ import Link from "next/link";
 import Image from "next/image";
 import {Button} from "react-bootstrap";
 
-const inter = Inter({ subsets: ['latin'] });
+// const inter = Inter({ subsets: ['latin'] });
 
 function stringAvatar(name) {
   return {
@@ -23,11 +23,6 @@ function stringAvatar(name) {
     children: `${name.split(' ')[0][0]}${name.split(' ')[1][0]}`,
   };
 }
-
-// export const metadata = {
-//   title: 'VSV',
-//   description: 'Voyageur Sans Vehicule',
-// };
 
 export default function RootLayout({ children }) {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -66,36 +61,40 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
     <head>
+      <link rel="preconnect" href="https://fonts.googleapis.com"/>
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin/>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
       <title>VSV</title>
     </head>
-    <body className={inter.className}>
-      <SideNavbar navItems={navItems} isExpanded={isExpanded} onToggle={toggleNavbar}/>
+    <body className="inter">
 
-      <div className={`body ${inter.className} ${isExpanded ? 'body-expanded' : 'body-collapsed'}`}>
-        <div className="horizontal-navbar">
-          <Link href="/profile" className="element">
-            <Button className="login-button">
-              <FaUser /> Profile
-            </Button>
+    <SideNavbar navItems={navItems} isExpanded={isExpanded} onToggle={toggleNavbar}/>
 
-            {/*<Avatar {...stringAvatar("Ntye Nina Laissa")}/>*/}
-            {/*Profile*/}
-          </Link>
+    <div className={`body inter ${isExpanded ? 'body-expanded' : 'body-collapsed'}`}>
+      <div className="horizontal-navbar">
+        <Link href="/profile" className="element">
+          <Button className="login-button">
+            <FaUser/> Profile
+          </Button>
 
-          <Link href="/">
-            <Image
-              src="/Logo.svg"
-              alt="YO"
-              className="element"
-              width={100}
-              height={100}
-            />
-          </Link>
-        </div>
-        <div>
-          {children}
-        </div>
+          {/*<Avatar {...stringAvatar("Ntye Nina Laissa")}/>*/}
+          {/*Profile*/}
+        </Link>
+
+        <Link href="/">
+          <Image
+            src="/Logo.svg"
+            alt="YO"
+            className="element"
+            width={100}
+            height={100}
+          />
+        </Link>
       </div>
+      <div>
+        {children}
+      </div>
+    </div>
     </body>
     </html>
   );
