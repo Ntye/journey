@@ -2,6 +2,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Avatar from '@mui/material/Avatar';
 import './styles/globals.css';
+import './styles/landing.css'
 import SideNavbar from "../components/main/SideNavbar";
 import React, {useState} from "react";
 
@@ -74,15 +75,6 @@ export default function RootLayout({ children }) {
 
     <div className={`body inter ${isExpanded ? 'body-expanded' : 'body-collapsed'}`}>
       <div className="horizontal-navbar">
-        <Link href="/profile" className="element">
-          <Button className="login-button">
-            <FaUser/> Profile
-          </Button>
-
-          {/*<Avatar {...stringAvatar("Ntye Nina Laissa")}/>*/}
-          {/*Profile*/}
-        </Link>
-
         <Link href="/">
           <Image
             src="/Logo.svg"
@@ -92,6 +84,16 @@ export default function RootLayout({ children }) {
             height={100}
           />
         </Link>
+
+        <Link href="/profile" className="element">
+            <Button className="login-button">
+              <FaUser/> Profile
+            </Button>
+
+            {/*<Avatar {...stringAvatar("Ntye Nina Laissa")}/>*/}
+            {/*Profile*/}
+        </Link>
+
       </div>
       <div>
         {children}

@@ -1,54 +1,38 @@
 'use client'
-import Link from "next/link";
-import {Button, Form, Col} from "react-bootstrap";
-
-import Image from "next/image";
+import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import '../styles/auth.css';
+import React from 'react'
+import Image from 'next/image'
+import Link from 'next/link'
 
 export default function Login() {
-
   return (
-    <div className='centered'>
-      <div className='entries'>
-        <span className='intro-word'>LOG IN TO <span className='store'>AllStore</span></span>
-        <div className='note'><span className='sub-text'>If you do not have an existing account, click</span> {'  '}
-          <Link href="/auth/signup" className='link-deco'>Here!</Link>
-        </div>
-        <div className='entries-pic'>
-          <Form className="form-size" method='POST'>
-            <Form.Group className="user" controlId="username">
-              <Form.Control
-                name='user'
-                type='text'
-                placeholder="Username"
-              />
-            </Form.Group>
-
-            <span className='sub-text text-bel'>You can use letters, numbers and symbols</span>
-
-            <Form.Group as={Col} controlId="password">
-              <Form.Control
-                name="pwd"
-                type="password"
-                placeholder="Password"
-              />
-            </Form.Group>
-
-            <br/>
-            <Button className='custom-button' variant="secondary" type="submit">
-              Login
-            </Button>
-          </Form>
-
+    <Container className="authContainer">
+      <Row className="formContent">
+        <Col md={6} className="imageContent coloured-content">
           <Image
-            src="/connexion-page.jpeg"
-            alt="YO"
-            className="rounded-image"
-            width={150}
-            height={60}
+            src="/login.svg"
+            alt="Login"
+            width={1000}
+            height={100}
+            className="image"
           />
-
-        </div>
-      </div>
-    </div>
-  )
+        </Col>
+        <Col md={6} className="entries">
+          <h2 className="noticia-text-regular heading text-part mb-5">Login </h2>
+          <Form className="form-form text-part">
+            <Form.Group controlId="login-username" className="mb-3">
+              <Form.Control type="text" name="username" placeholder="Username" required/>
+            </Form.Group>
+            <Form.Group controlId="login-password" className="mb-3">
+              <Form.Control type="password" name="password" placeholder="Password" required/>
+            </Form.Group>
+            <Button type="submit" className="submit-button"><strong>Login</strong></Button>
+            <br/><br/>
+            <span className="auth-texts">Don't have an account yet? <Link href="/auth/signup" className="auth-text"><strong>SIGN UP</strong></Link></span>
+          </Form>
+        </Col>
+      </Row>
+    </Container>
+  );
 }

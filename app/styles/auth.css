@@ -1,184 +1,89 @@
-.logo {
-    margin: 20px 200px 20px 300px;
-    display: flex;
-    padding-left: 50px;
-    align-items: center;
-}
-
-.form-size {
-    margin-top: -15px;
-    width: 500px;
-}
-
-.rounded-image {
-    margin-left: 80px;
-    border-radius: 700px;
-}
-
-.intro-word {
-    font-family: "Anybody", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 600;
-    font-style: normal;
-    font-size: x-large;
-    font-variation-settings: "wdth" 100;
-}
-
-.store {
-    font-family: "Kaushan Script", cursive;
-    font-weight: 500;
-    font-style: normal;
-}
-
-.sub-text {
-    font-family: "Anybody", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-    color: rgb(126, 122, 122);
-    font-size: small;
-    font-variation-settings: "wdth" 100;
-}
-.note {
-    margin-bottom: 0.1rem;
-    margin-left: 5px;
-}
-
-.link-deco {font-family: "Anybody", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-    color: rgb(231, 69, 69);
-    font-size: small;
-    font-variation-settings: "wdth" 100;
-    text-decoration: none;
-}
-
-.link-deco:hover {
-    color: #9c4908; /* Set the hover color */
-}
-
-.centered {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.entries {
-    padding-top: 15px;
-    padding-bottom: 15px;
-    padding-left: 45px;
-    width: 1000px;
-    border-radius: 15px;
-    background-color: rgba(185, 206, 239, 0.35);
-    /*background-color: #00AFF5FF;*/
-    /*background-color: #054652FF;*/
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.388);
-    transition: width 0.5s, height 0.5s;
-}
-
-.user {
-    margin-bottom: 0;
-}
-
-.pass {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-}
-
-.entries-pic {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-.centered-img {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.coloured-content {
+    background-color: #EAEAF6;
+    z-index: -2;
+    height: 770px;
 }
 
 .image {
-    margin-left: 60px;
-    width: 300px;
-    height: 300px;
-    transition: width 0.5s, height 0.5s;
-}
-
-.image-radio-group {
-    margin-bottom: 0.75rem;
-}
-
-.top-image {
-    position: absolute;
-    top: 0;
-    right: 0;
-    max-width: 60%;
     z-index: -1;
 }
 
-.bot-image {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    max-width: 60%;
-    z-index: -1;
+.signup-image {
+    margin-top: -100px;
 }
 
-.logo-cont {
-    padding-left: 4.5rem;
+.signup-content {
+    /*margin-top: -500px;*/
+    margin-top: 100px;
+    height: 770px;
 }
 
-.custom-button {
-    background-color: #c2f1f6;
-    color: #000000;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.388);
-    border: none;
+.signup-format {
+    margin-top: -20px;
 }
 
-.custom-button:hover {
-    background-color: #5e2a14;
+.authContainer {
+    margin-top: -100px;
+    margin-left: -25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.interface {
-    width: 80px;
-    height: 80px;
+.formContent {
+    display: flex;
+    width: 100%;
 }
 
-.remember {
-    margin-bottom: 10px;
+.entries {
+    margin-top: 150px;
+}
+.text-part {
+    margin-left: 70px;
 }
 
-.react-datepicker {
-    font-family: Arial, sans-serif;
+.form-form {
+    width: 400px;
 }
 
-@media (max-width: 900px) {
-    .image {
-        display: none;
-    }
-    .logo {
-        margin-right: 150px;
-    }
-    .entries {
-        padding-left: 25px;
-        padding-right: 25px;
-        width: 600px;
-        border-radius: 54px;
-        margin-right: 0;
-    }
+.imageContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-@media (max-width: 640px) {
-    .image {
-        display: none;
-    }
-    .logo {
-        margin-right: 150px;
-    }
-    .entries {
-        padding-left: 10px;
-        padding-right: 10px;
-        width: 400px;
-        border-radius: 54px;
-    }
+.imageContent img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
+
+.submit-button {
+    padding: 5px;
+    background-color: #2e1aa8;
+    border-color: #2e1aa8;
+    justify-content: space-between;
+    border-radius: 30px;
+    border-width: 2px;
+    width: 90px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    background-color: #ffffff;
+    color: #2e1aa8;
+    border-color: #2e1aa8;
+}
+
+.auth-texts {
+    font-size: 14px;
+}
+
+.auth-text {
+    color: #897df6;
+}
+
+.auth-text:hover {
+    color: #483e88;
 }
