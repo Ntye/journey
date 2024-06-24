@@ -20,9 +20,10 @@
 
 .login-button {
     background-color: #2e1aa8;
-    border: #2e1aa8;
+    border-color: #2e1aa8;
     justify-content: space-between;
     border-radius: 20px;
+    border-width: 2px;
     width: 90px;
     display: flex;
     flex-direction: row;
@@ -30,8 +31,9 @@
 }
 
 .login-button:hover {
-    background-color: #007bff;
-    border: #007bff;
+    background-color: #ffffff;
+    border-color: #2e1aa8;
+    color: #2e1aa8;
 }
 
 .header {

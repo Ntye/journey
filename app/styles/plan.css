@@ -1,4 +1,91 @@
+.page {
+	margin-left: 70px;
+	margin-top: 80px;
+}
+
 .plan {
 	border-radius: 40px;
 	box-shadow: 0 4px 8px #282626;
+}
+
+.labelings {
+	font-size: 30px;
+}
+
+.form-type {
+	width: 400px;
+}
+
+.submit-button {
+	padding: 5px;
+	background-color: #2e1aa8;
+	border-color: #2e1aa8;
+	justify-content: space-between;
+	border-radius: 30px;
+	border-width: 2px;
+	width: 90px;
+	color: #fff;
+	cursor: pointer;
+}
+
+.submit-button:hover {
+	background-color: #ffffff;
+	color: #2e1aa8;
+	border-color: #2e1aa8;
+}
+
+
+.cancel-button {
+	padding: 5px;
+	background-color: #c51b22;
+	border-color: #c51b22;
+	justify-content: space-between;
+	border-radius: 30px;
+	border-width: 2px;
+	width: 90px;
+	color: #fff;
+	cursor: pointer;
+}
+
+.cancel-button:hover {
+	background-color: #ffffff;
+	color: #c51b22;
+	border-color: #c51b22;
+}
+
+.card-size {
+	width: 1100px;
+}
+
+.button {
+	padding: 5px;
+	justify-content: space-between;
+	border-radius: 30px;
+	border-width: 2px;
+	width: 90px;
+	cursor: pointer;
+}
+
+.publish {
+	background-color: #32bd32;
+	color: white;
+	border-color: white;
+}
+
+.publish:hover {
+	background-color: #ffffff;
+	color: #32bd32;
+	border-color: #32bd32;
+}
+
+.modify {
+	background-color: #2e1aa8;
+	color: white;
+	border-color: white;
+}
+
+.modify:hover {
+	background-color: #ffffff;
+	color: #2e1aa8;
+	border-color: #2e1aa8;
 }

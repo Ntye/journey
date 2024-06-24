@@ -6,21 +6,21 @@ import './styles/landing.css'
 import SideNavbar from "../components/main/SideNavbar";
 import React, {useState} from "react";
 
-import { FaHome, FaInfoCircle, FaServicestack, FaEnvelope, FaUser } from 'react-icons/fa';
+import {
+  FaHome,
+  FaInfoCircle,
+  FaServicestack,
+  FaEnvelope,
+  FaUser,
+  FaBookmark,
+  FaRegBookmark,
+  FaBook
+} from 'react-icons/fa'
 import Link from "next/link";
 import Image from "next/image";
 import {Button} from "react-bootstrap";
+import { FaBookAtlas, FaTicket } from 'react-icons/fa6'
 
-function stringAvatar(name) {
-  return {
-    sx: {
-      width: 30,
-      height: 30,
-      bgcolor: "#2e1aa8",
-    },
-    children: `${name.split(' ')[0][0]}${name.split(' ')[1][0]}`,
-  };
-}
 
 export default function RootLayout({ children }) {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -34,18 +34,18 @@ export default function RootLayout({ children }) {
       "id": "1",
       "name": "Home",
       "icon": <FaHome/>,
-      "link": "/auth"
+      "link": "/"
     },
     {
       "id": "2",
-      "name": "About",
-      "icon": <FaInfoCircle/>,
-      "link": "/auth"
+      "name": "Plan",
+      "icon": <FaBookmark/>,
+      "link": "/plan"
     },
     {
       "id": "3",
-      "name": "Services",
-      "icon": <FaServicestack/>,
+      "name": "Confirm",
+      "icon": <FaTicket/>,
       "link": "/auth"
     },
     {
@@ -89,9 +89,6 @@ export default function RootLayout({ children }) {
             <Button className="login-button">
               <FaUser/> Profile
             </Button>
-
-            {/*<Avatar {...stringAvatar("Ntye Nina Laissa")}/>*/}
-            {/*Profile*/}
         </Link>
 
       </div>
