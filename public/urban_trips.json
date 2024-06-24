@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "from": "Bonapriso",
+    "to": "Akwa",
+    "city": "Douala",
+    "date": "2024-07-01",
+    "drivers": ["Driver M", "Driver N", "Driver O"]
+  },
+  {
+    "id": 2,
+    "from": "Mokolo",
+    "to": "Briqueterie",
+    "city": "Yaoundé",
+    "date": "2024-07-02",
+    "drivers": ["Driver P", "Driver Q", "Driver R"]
+  },
+  {
+    "id": 3,
+    "from": "Nkwen",
+    "to": "Mile 2",
+    "city": "Bamenda",
+    "date": "2024-07-03",
+    "drivers": ["Driver S", "Driver T", "Driver U"]
+  },
+  {
+    "id": 4,
+    "from": "New-Bell",
+    "to": "Makepe",
+    "city": "Douala",
+    "date": "2024-07-04",
+    "drivers": ["Driver V", "Driver W", "Driver X"]
+  }
+]

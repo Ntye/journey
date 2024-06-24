@@ -2,3 +2,30 @@
     padding-top: 60px;
     padding-left: 40px;
 }
+
+.profile-container {
+    margin-left: 30px;
+}
+
+.profile-button {
+    padding: 5px;
+    background-color: #2e1aa8;
+    border-color: #2e1aa8;
+    justify-content: space-between;
+    border-radius: 30px;
+    border-width: 2px;
+    width: 90px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.profile-button:hover {
+    background-color: #ffffff;
+    color: #2e1aa8;
+    border-color: #2e1aa8;
+}
+
+.entries-display {
+    font-size: 20px;
+    margin-top: 10px;
+}

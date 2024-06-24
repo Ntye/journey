@@ -1,5 +1,4 @@
 'use client'
-
 import React, { useState } from 'react';
 import Image from "next/image";
 import { Button, Card, Form} from 'react-bootstrap';
@@ -17,7 +16,7 @@ export default function Home() {
 		date: '',
 		price: '',
 		repeat: false,
-		repeatType: 'daily',
+		repeatType: 0,
 		endDate: ''
 	});
 
@@ -44,7 +43,7 @@ export default function Home() {
 			date: '',
 			price: '',
 			repeat: false,
-			repeatType: 'daily',
+			repeatType: 0,
 			endDate: ''
 		});
 		setShowForm(false);
@@ -62,7 +61,7 @@ export default function Home() {
 			date: '',
 			price: '',
 			repeat: false,
-			repeatType: 'daily',
+			repeatType: 0,
 			endDate: ''
 		});
 	};
@@ -80,9 +79,9 @@ export default function Home() {
 			setFormData({
 				...formData,
 				repeat: checked,
-				repeatType: 'daily', // Reset repeatType if unchecked
-				repeatDays: [], // Reset repeatDays if unchecked
-				endDate: '' // Reset endDate if unchecked
+				repeatType: 0,
+				repeatDays: [],
+				endDate: ''
 			});
 		} else {
 			setFormData({ ...formData, [name]: checked });
@@ -192,9 +191,9 @@ export default function Home() {
 									value={formData.repeatType}
 									onChange={handleRepeatTypeChange}
 								>
-									<option value="daily">Daily</option>
-									<option value="weekly">Weekly</option>
-									<option value="monthly">Monthly</option>
+									<option value="1">Daily</option>
+									<option value="2">Weekly</option>
+									<option value="3">Monthly</option>
 								</Form.Select>
 							</Form.Group>
 

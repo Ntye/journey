@@ -1,7 +1,9 @@
 'use client'
 import React from "react";
-
-import './styles/landing.css';
+import './styles/trips.css';
+import { Tab, Tabs } from 'react-bootstrap'
+import InterUrbanTrips from '@/components/InterUrbanTrips'
+import UrbanTrips from '@/components/UrbanTrips'
 
 
 export default function Home() {
@@ -30,6 +32,18 @@ export default function Home() {
             eleifend condimentum.
           </span>
         </div>
+
+        <div className="trips-page-container" style={{ padding: '20px' }}>
+          <Tabs defaultActiveKey="interurban" id="trips-tabs" classname="trip-tabs">
+            <Tab eventKey="interurban" title="Interurban Trips">
+              <InterUrbanTrips/>
+            </Tab>
+            <Tab eventKey="urban" title="Urban Trips">
+              <UrbanTrips/>
+            </Tab>
+          </Tabs>
+        </div>
+
       </div>
     </main>
   );
