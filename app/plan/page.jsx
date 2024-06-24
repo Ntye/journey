@@ -222,7 +222,7 @@ export default function Home() {
 						<div>
 							<Card.Title>{trip.arrival}</Card.Title>
 							<Card.Subtitle className="mb-2 text-muted">Departure: {trip.departure}</Card.Subtitle>
-							<Card.Subtitle className="mb-2 text-muted">Price: {trip.price}FCFA</Card.Subtitle>
+							<Card.Subtitle className="mb-2 text-muted">Price: {trip.price} FCFA</Card.Subtitle>
 							<Card.Subtitle className="mb-2 text-muted">Time: {trip.time}</Card.Subtitle>
 							<Card.Subtitle className="mb-2 text-muted">Date: {trip.date}</Card.Subtitle>
 							{trip.repeat && (
