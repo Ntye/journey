@@ -1,34 +1,102 @@
 [
   {
     "id": 1,
-    "from": "Bonapriso",
-    "to": "Akwa",
     "city": "Douala",
-    "date": "2024-07-01",
-    "drivers": ["Driver M", "Driver N", "Driver O"]
+    "from": "Akwa",
+    "to": "Bonapriso",
+    "date": "2024-06-25",
+    "departureTime": "10:00",
+    "price": 500,
+    "driver": "Driver A"
   },
   {
     "id": 2,
-    "from": "Mokolo",
-    "to": "Briqueterie",
-    "city": "Yaoundé",
-    "date": "2024-07-02",
-    "drivers": ["Driver P", "Driver Q", "Driver R"]
+    "city": "Yaounde",
+    "from": "Mvog-Ada",
+    "to": "Bastos",
+    "date": "2024-06-26",
+    "departureTime": "11:00",
+    "price": 700,
+    "driver": "Driver D"
   },
   {
     "id": 3,
-    "from": "Nkwen",
-    "to": "Mile 2",
-    "city": "Bamenda",
-    "date": "2024-07-03",
-    "drivers": ["Driver S", "Driver T", "Driver U"]
+    "city": "Douala",
+    "from": "Bonanjo",
+    "to": "Bonabéri",
+    "date": "2024-06-27",
+    "departureTime": "09:00",
+    "price": 600,
+    "driver": "Driver B"
   },
   {
     "id": 4,
-    "from": "New-Bell",
-    "to": "Makepe",
+    "city": "Yaounde",
+    "from": "Nlongkak",
+    "to": "Etoa Meki",
+    "date": "2024-06-28",
+    "departureTime": "14:00",
+    "price": 800,
+    "driver": "Driver E"
+  },
+  {
+    "id": 5,
     "city": "Douala",
+    "from": "Deido",
+    "to": "Logpom",
+    "date": "2024-06-29",
+    "departureTime": "08:00",
+    "price": 550,
+    "driver": "Driver C"
+  },
+  {
+    "id": 6,
+    "city": "Yaounde",
+    "from": "Essos",
+    "to": "Ngousso",
+    "date": "2024-06-30",
+    "departureTime": "16:00",
+    "price": 750,
+    "driver": "Driver F"
+  },
+  {
+    "id": 7,
+    "city": "Douala",
+    "from": "Bonapriso",
+    "to": "Akwa",
+    "date": "2024-07-01",
+    "departureTime": "07:00",
+    "price": 500,
+    "driver": "Driver A"
+  },
+  {
+    "id": 8,
+    "city": "Yaounde",
+    "from": "Biyem-Assi",
+    "to": "Mendong",
+    "date": "2024-07-02",
+    "departureTime": "13:00",
+    "price": 900,
+    "driver": "Driver G"
+  },
+  {
+    "id": 9,
+    "city": "Douala",
+    "from": "Logbaba",
+    "to": "Makepe",
+    "date": "2024-07-03",
+    "departureTime": "12:00",
+    "price": 650,
+    "driver": "Driver H"
+  },
+  {
+    "id": 10,
+    "city": "Yaounde",
+    "from": "Etoa Meki",
+    "to": "Nkolbisson",
     "date": "2024-07-04",
-    "drivers": ["Driver V", "Driver W", "Driver X"]
+    "departureTime": "15:00",
+    "price": 850,
+    "driver": "Driver I"
   }
 ]

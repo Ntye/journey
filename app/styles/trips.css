@@ -2,9 +2,31 @@
 	max-width: 600px;
 }
 
+.trip-size {
+	width: 600px;
+}
+
 .trips-container h2 {
 	/*text-align: center;*/
 	margin-bottom: 20px;
+}
+
+.select-button {
+	background-color: #2e1aa8;
+	border-color: #2e1aa8;
+	justify-content: center;
+	border-radius: 70px;
+	border-width: 2px;
+	width: 90px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.select-button:hover {
+	background-color: #ffffff;
+	border-color: #2e1aa8;
+	color: #2e1aa8;
 }
 
 .trips-container form {
