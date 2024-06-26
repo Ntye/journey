@@ -1,30 +1,62 @@
 [
   {
     "id": 1,
-    "from": "Douala",
-    "to": "Yaoundé",
-    "date": "2024-07-01",
-    "drivers": ["Driver A", "Driver B", "Driver C"]
+    "start": "New York",
+    "end": "Los Angeles",
+    "drivers": ["Alice", "Bob", "Charlie"]
   },
   {
     "id": 2,
-    "from": "Bamenda",
-    "to": "Bafoussam",
-    "date": "2024-07-02",
-    "drivers": ["Driver D", "Driver E", "Driver F"]
+    "start": "San Francisco",
+    "end": "Las Vegas",
+    "drivers": ["Dave", "Eve", "Frank"]
   },
   {
     "id": 3,
-    "from": "Garoua",
-    "to": "Maroua",
-    "date": "2024-07-03",
-    "drivers": ["Driver G", "Driver H", "Driver I"]
+    "start": "Chicago",
+    "end": "Houston",
+    "drivers": ["Grace", "Heidi", "Ivan"]
   },
   {
     "id": 4,
-    "from": "Buea",
-    "to": "Limbe",
-    "date": "2024-07-04",
-    "drivers": ["Driver J", "Driver K", "Driver L"]
+    "start": "Miami",
+    "end": "Orlando",
+    "drivers": ["Jack", "Kathy", "Liam"]
+  },
+  {
+    "id": 5,
+    "start": "Seattle",
+    "end": "Portland",
+    "drivers": ["Mia", "Nina", "Oscar"]
+  },
+  {
+    "id": 6,
+    "start": "Denver",
+    "end": "Salt Lake City",
+    "drivers": ["Paul", "Quinn", "Rachel"]
+  },
+  {
+    "id": 7,
+    "start": "Boston",
+    "end": "Philadelphia",
+    "drivers": ["Sam", "Tina", "Uma"]
+  },
+  {
+    "id": 8,
+    "start": "Dallas",
+    "end": "Austin",
+    "drivers": ["Victor", "Wendy", "Xander"]
+  },
+  {
+    "id": 9,
+    "start": "Atlanta",
+    "end": "Charlotte",
+    "drivers": ["Yara", "Zane", "Abby"]
+  },
+  {
+    "id": 10,
+    "start": "Phoenix",
+    "end": "San Diego",
+    "drivers": ["Brian", "Chris", "Diana"]
   }
 ]

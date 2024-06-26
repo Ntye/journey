@@ -1,43 +1,47 @@
 'use client'
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import '../../styles/auth.css';
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
+import { GlobalContext } from '@/app/context/GlobalContext'
+import axiosInstance from '@/components/axios'
 
 export default function Signup() {
-  const handleSubmit = async (e) => {
+  const router = useRouter();
+
+  const { isAuthenticated, setIsAuthenticated } = useContext(GlobalContext);
+  const handleSubmit = (e) => {
     e.preventDefault();
     const form = new FormData(e.currentTarget);
 
+
+
     const formData = {
-      name: form.get('name'),
-      username: form.get('username'),
+      name: form.get('firstname'),
+      username: form.get('lastname'),
       email: form.get('email'),
       password: form.get('password'),
       confirmationPassword: form.get('confirmationPassword'),
-      mobile: form.get('mobile'),
-      dateOBirth: form.get('dateOBirth'),
+      mobile: form.get('tel'),
+      dateOBirth: form.get('dob'),
       sex: form.get('sex')
     };
 
-    if (formData.pwd !== formData.confpwd) {
+    if (formData.password !== formData.confirmationPassword) {
+      formData.delete('confirmationPassword');
       alert("Passwords do not match");
-      return;
+      // return;
     }
-
-    const response = await fetch('/api/auth/signup', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(formData)
-    });
-
-    if (response.ok) {
-      alert("Signup successful!");
-    } else {
-      alert("Signup failed");
+    else {
+      const token = "example-token";
+      setIsAuthenticated({
+        auth: true,
+        token: token
+      });
+      console.log(isAuthenticated)
+      router.push('/');
     }
   };
 
@@ -49,9 +53,9 @@ export default function Signup() {
           <h2 className="noticia-text-regular heading text-part ">Sign Up</h2>
           <Form className="form-form text-part" onSubmit={handleSubmit}>
             <Form.Control
-              name="name"
+              name="firstname"
               type="text"
-              placeholder="Name"
+              placeholder="First Name"
               className="mb-3 mt-8"
               required
             />
@@ -59,8 +63,8 @@ export default function Signup() {
             <Form.Group controlId="signup-username">
               <Form.Control
                 type="text"
-                name="username"
-                placeholder="Username"
+                name="lastname"
+                placeholder="Last Name"
                 className="mb-3"
                 required
               />
@@ -79,7 +83,7 @@ export default function Signup() {
             <Row className="mb-3">
               <Form.Group as={Col} controlId="Password">
                 <Form.Control
-                  name="pwd"
+                  name="password"
                   type="password"
                   placeholder="Password"
                   required
@@ -98,7 +102,7 @@ export default function Signup() {
 
             <Form.Group as={Col} controlId="Numero">
               <Form.Control
-                name="mobile"
+                name="tel"
                 type="text"
                 placeholder="Telephone Number"
                 className="mb-3"
@@ -110,7 +114,7 @@ export default function Signup() {
             <Row className="mb-3">
               <Form.Group as={Col} controlId="Date">
                 <Form.Control
-                  name="dateOBirth"
+                  name="dob"
                   type="date"
                   placeholder="Date de naissance"
                   required
@@ -120,8 +124,8 @@ export default function Signup() {
               <Form.Group as={Col} controlId="Sexe">
                 <Form.Select name='sexe' required>
                   <option value="">Gender</option>
-                  <option value ="0" type='text'>Male</option>
-                  <option value ="1" type='text'>Female</option>
+                  <option value ="0">Male</option>
+                  <option value ="1">Female</option>
                 </Form.Select>
               </Form.Group>
             </Row>

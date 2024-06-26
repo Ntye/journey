@@ -53,6 +53,7 @@
 }
 
 .link:hover {
-    color: #9c4908;
+    color: #9494f5;
+    border-radius: 40px;
     background-color: aliceblue;
 }

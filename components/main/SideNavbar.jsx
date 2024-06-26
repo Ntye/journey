@@ -3,6 +3,12 @@ import React, { useState } from 'react';
 import '../styles/SideNavbar.css';
 import { FaBars } from 'react-icons/fa';
 import Link from "next/link";
+import {
+  FaHome,
+  FaEnvelope,
+  FaUser,
+  FaBookmark,
+} from 'react-icons/fa'
 
 const SideNavbar = ({navItems, onToggle, isExpanded}) => {
 
@@ -31,6 +37,16 @@ const SideNavbar = ({navItems, onToggle, isExpanded}) => {
             }
           </Link>
         ))}
+
+        <Link href="/auth" className="link mt-8">
+          {isExpanded ?
+            <div className="link-text">
+              Login <FaUser/>
+            </div>
+            : <FaUser/>
+          }
+        </Link>
+
       </nav>
     </div>
   );

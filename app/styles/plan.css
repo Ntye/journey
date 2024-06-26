@@ -16,6 +16,15 @@
 	width: 400px;
 }
 
+.title-page {
+	margin-left: 100px;
+	margin-top: 100px;
+}
+.confirm-page {
+	margin-left: 100px;
+	width: 600px;
+}
+
 .submit-button {
 	padding: 5px;
 	background-color: #2e1aa8;
@@ -88,4 +97,27 @@
 	background-color: #ffffff;
 	color: #2e1aa8;
 	border-color: #2e1aa8;
+}
+
+.entries-element {
+	padding: 20px;
+}
+
+.button-confirm {
+	border-width: 2px;
+	margin: 30px;
+	height: 40px;
+	background-color: #32bd32;
+	color: white;
+	border-color: white;
+}
+
+.button-confirm:hover {
+	background-color: #ffffff;
+	color: #32bd32;
+	border-color: #32bd32;
+}
+
+.wland {
+	width: 600px;
 }

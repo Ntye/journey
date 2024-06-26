@@ -100,18 +100,34 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Card, Col, Form, Row } from 'react-bootstrap'
 import '../app/styles/trips.css';
+import axiosInstance from '@/components/axios'
 
 function UrbanTrips() {
 	const [urbanTrips, setUrbanTrips] = useState([]);
-	const [searchParams, setSearchParams] = useState({ city: '', from: '', to: '' });
+	const [searchParams, setSearchParams] = useState({ villeDepart: '', lieuDepart: '', lieuArrive: '' });
 	const [filteredUrbanTrips, setFilteredUrbanTrips] = useState([]);
+	const [isLoading,setIsLoading] = useState(true)
 
 	useEffect(() => {
 		// Fetch urban trip data
 		const fetchUrbanTrips = async () => {
-			const response = await fetch('/urban_trips.json');
-			const data = await response.json();
-			setUrbanTrips(data);
+			// const response = await fetch('/urban_trips.json');
+			// const data = await response.json();
+			// setUrbanTrips(data);
+
+			axiosInstance.get('/voyage')
+			.then(response => {
+				console.log(response.data)
+				const data = response.data
+				setIsLoading(false)
+				const filteredItems = data.filter(item =>
+					item.villeDepart.toLowerCase() === item.villeArrivee.toLowerCase()
+				)
+				setUrbanTrips(filteredItems);
+			})
+			.catch(error => {
+				console.error(error);
+			})
 		};
 
 		fetchUrbanTrips();
@@ -121,9 +137,9 @@ function UrbanTrips() {
 		// Filter urban trips based on search parameters
 		const filteredUrban = urbanTrips.filter(
 			(trip) =>
-				(searchParams.city === '' || trip.city.toLowerCase().includes(searchParams.city.toLowerCase())) &&
-				(searchParams.from === '' || trip.from.toLowerCase().includes(searchParams.from.toLowerCase())) &&
-				(searchParams.to === '' || trip.to.toLowerCase().includes(searchParams.to.toLowerCase()))
+				(searchParams.villeDepart === '' || trip.villeDepart.toLowerCase().includes(searchParams.villeDepart.toLowerCase())) &&
+				(searchParams.lieuDepart === '' || trip.lieuDepart.toLowerCase().includes(searchParams.lieuDepart.toLowerCase())) &&
+				(searchParams.lieuArrive === '' || trip.lieuArrive.toLowerCase().includes(searchParams.lieuArrive.toLowerCase()))
 		);
 		setFilteredUrbanTrips(filteredUrban);
 	}, [searchParams, urbanTrips]);
@@ -136,6 +152,10 @@ function UrbanTrips() {
 		}));
 	};
 
+	if(isLoading) {
+		return (<div>is Loading ....</div>)
+	}
+
 	return (
 		<div className="trips-container" style={{ padding: '20px' }}>
 			<h2 className="noticia-text-bold labelings mb-3">Search Urban Trips</h2>
@@ -143,8 +163,8 @@ function UrbanTrips() {
 				<Form.Group  controlId="from" className="mb-3">
 					<Form.Control
 						type="text"
-						name="city"
-						value={searchParams.city}
+						name="villeDepart"
+						value={searchParams.villeDepart}
 						onChange={handleInputChange}
 						placeholder="City: Enter city"
 					/>
@@ -153,8 +173,8 @@ function UrbanTrips() {
 					<Form.Group controlId="from" className="mr-8">
 						<Form.Control
 							type="text"
-							name="from"
-							value={searchParams.from}
+							name="lieuDepart"
+							value={searchParams.lieuDepart}
 							onChange={handleInputChange}
 							placeholder="From: Enter starting location"
 						/>
@@ -162,8 +182,8 @@ function UrbanTrips() {
 					<Form.Group controlId="to">
 						<Form.Control
 							type="text"
-							name="to"
-							value={searchParams.to}
+							name="lieuArrive"
+							value={searchParams.lieuArrive}
 							onChange={handleInputChange}
 							placeholder="To: Enter destination"
 						/>
@@ -177,14 +197,13 @@ function UrbanTrips() {
 					<Card key={trip.id} className="mb-3 trip-size">
 						<Card.Body className="flex flex-row justify-between ">
 							<div>
-								<Card.Title>{trip.city}: {trip.from} to {trip.to}</Card.Title>
-								<Card.Subtitle className="mb-2 text-muted">Price: {trip.price} FCFA</Card.Subtitle>
-								<Card.Subtitle className="mb-2 text-muted">Time: {trip.departureTime}</Card.Subtitle>
-								<Card.Subtitle className="mb-2 text-muted">Date: {trip.date}</Card.Subtitle>
-								<Card.Subtitle className="mb-2 text-muted">Driver: {trip.driver}</Card.Subtitle>
+								<Card.Title>{trip.villeDepart}: {trip.lieuDepart} to {trip.lieuArrive}</Card.Title>
+								<Card.Subtitle className="mb-2 text-muted">Price: 1000 FCFA</Card.Subtitle>
+								<Card.Subtitle className="mb-2 text-muted">Date & time: {trip.dateDepart}</Card.Subtitle>
+								{/*<Card.Subtitle className="mb-2 text-muted">Driver: {trip.driver}</Card.Subtitle>*/}
 							</div>
 							<div>
-								<Button className="select-button" onClick={() => alert(`Selected trip from ${trip.from} to ${trip.to}`)}>Select</Button>
+								<Button className="select-button" onClick={() => alert(`Selected trip from ${trip.lieuDepart} to ${trip.lieuArrive}`)}>Select</Button>
 							</div>
 						</Card.Body>
 					</Card>
