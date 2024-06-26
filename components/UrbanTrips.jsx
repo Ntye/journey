@@ -198,9 +198,10 @@ function UrbanTrips() {
 						<Card.Body className="flex flex-row justify-between ">
 							<div>
 								<Card.Title>{trip.villeDepart}: {trip.lieuDepart} to {trip.lieuArrive}</Card.Title>
-								<Card.Subtitle className="mb-2 text-muted">Price: 1000 FCFA</Card.Subtitle>
+								<Card.Subtitle className="mb-2 text-muted">Price: {Math.ceil(trip.price / 10) * 10} FCFA</Card.Subtitle>
 								<Card.Subtitle className="mb-2 text-muted">Date & time: {trip.dateDepart}</Card.Subtitle>
-								{/*<Card.Subtitle className="mb-2 text-muted">Driver: {trip.driver}</Card.Subtitle>*/}
+								<Card.Subtitle className="mb-2 text-muted">Time: {trip.heureDepart}</Card.Subtitle>
+								{/*<Card.Subtitle className="mb-2 text-muted">Fre: {trip.heureDepart}</Card.Subtitle>*/}
 							</div>
 							<div>
 								<Button className="select-button" onClick={() => alert(`Selected trip from ${trip.lieuDepart} to ${trip.lieuArrive}`)}>Select</Button>

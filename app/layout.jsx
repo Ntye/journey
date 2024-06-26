@@ -1,10 +1,10 @@
 'use client'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { GlobalProvider } from '@/app/context/GlobalContext'
+import { GlobalContext, GlobalProvider } from '@/app/context/GlobalContext'
 import './styles/globals.css';
 import './styles/landing.css'
 import SideNavbar from "../components/main/SideNavbar";
-import React, {useState} from "react";
+import React, { useContext, useState } from 'react'
 
 import {
   FaHome,
@@ -67,7 +67,7 @@ export default function RootLayout({ children }) {
       </head>
       <body className="inter">
 
-      <SideNavbar navItems={navItems} isExpanded={isExpanded} onToggle={toggleNavbar}/>
+      <SideNavbar navItems={navItems} isExpanded={isExpanded}  onToggle={toggleNavbar}/>
 
       <div className={`body inter ${isExpanded ? 'body-expanded' : 'body-collapsed'}`}>
         <div className="horizontal-navbar">

@@ -10,7 +10,7 @@ import {
   FaBookmark,
 } from 'react-icons/fa'
 
-const SideNavbar = ({navItems, onToggle, isExpanded}) => {
+const SideNavbar = ({navItems, onToggle, isExpanded,isAuthenticated}) => {
 
   return (
     <div className={`side-navbar ${isExpanded ? 'expanded' : 'collapsed'}`}>
@@ -38,7 +38,8 @@ const SideNavbar = ({navItems, onToggle, isExpanded}) => {
           </Link>
         ))}
 
-        <Link href="/auth" className="link mt-8">
+        {isAuthenticated ??
+          <Link href="/auth" className="link mt-8">
           {isExpanded ?
             <div className="link-text">
               Login <FaUser/>
@@ -46,6 +47,7 @@ const SideNavbar = ({navItems, onToggle, isExpanded}) => {
             : <FaUser/>
           }
         </Link>
+        }
 
       </nav>
     </div>

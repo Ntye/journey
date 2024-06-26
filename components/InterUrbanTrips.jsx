@@ -173,9 +173,10 @@ function InterurbanTrips() {
 					<Card.Body className="flex flex-row justify-between ">
 						<div>
 							<Card.Title>City : {trip.villeDepart} to {trip.villeArrivee}</Card.Title>
-							<Card.Subtitle className="mb-2">Quater: {trip.lieuDepart} to {trip.lieuArrive}</Card.Subtitle>
-							<Card.Subtitle className="mb-2 text-muted">Price: 1000 FCFA</Card.Subtitle>
-							<Card.Subtitle className="mb-2 text-muted">Time: {trip.dateDepart}</Card.Subtitle>
+							<Card.Subtitle className="mb-2">Quater: {trip.lieuDepart} to {trip.lieuArrivee}</Card.Subtitle>
+							<Card.Subtitle className="mb-2 text-muted">Price: {Math.ceil(trip.price / 10) * 10} FCFA</Card.Subtitle>
+							<Card.Subtitle className="mb-2 text-muted">Date & time: {trip.dateDepart}</Card.Subtitle>
+							<Card.Subtitle className="mb-2 text-muted">Time: {trip.heureDepart}</Card.Subtitle>
 						</div>
 						<div>
 							<Button className="select-button" onClick={() => alert(`Selected trip from ${trip.villeDepart} to ${trip.villeArrivee}`)}>Select</Button>

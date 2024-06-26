@@ -6,15 +6,18 @@ import '../styles/profile.css';
 import '../styles/plan.css';
 import Avatar from '@mui/material/Avatar';
 import { GlobalContext } from '@/app/context/GlobalContext'
+import axiosInstance from '@/components/axios'
 
 function UserProfile() {
   const [user, setUser] = useState({
-    firstname: '',
-    lastname: '',
-    email: '',
-    phone: '',
-    address: ''
+    name: '',
+    surname: '',
+    dateOfBirth: '',
+    email:'',
+    tel: '',
+    sex: ''
   });
+  const [isLoading,setIsLoading] = useState(true)
   const [isEditing, setIsEditing] = useState(false);
   const router = useRouter();
   const { isAuthenticated, setIsAuthenticated } = useContext(GlobalContext);
@@ -22,14 +25,25 @@ function UserProfile() {
   useEffect(() => {
     const fetchUserData = async () => {
 
-      const userData = {
-        firstname: 'John',
-        lastname: 'Doe',
-        email: 'john@example.com',
-        phone: '123-456-7890',
-        address: '123 Main St'
-      };
-      setUser(userData);
+      // const userData = {
+      //   firstname: 'John',
+      //   lastname: 'Doe',
+      //   email: 'john@example.com',
+      //   phone: '123-456-7890',
+      //   address: '123 Main St'
+      // };
+
+      axiosInstance.get('/v1/auth/verify-token')
+      .then(response => {
+        setUser(response.data)
+        console.log(response.data)
+        setIsLoading(false);
+      })
+      .catch(error => {
+        console.error(error);
+        setIsLoading(false)
+      });
+      // setUser(userData);
     };
 
     fetchUserData();
@@ -93,17 +107,24 @@ function UserProfile() {
     };
   }
 
+  if(isLoading) {
+    return (
+      <div>is loading ...</div>
+    )
+  }
+
   return (
     <div className="profile-container" style={{ padding: '30px' }}>
       <h2 className="noticia-text-bold labelings mb-5">User Profile</h2>
-      <Avatar {...stringAvatar(user.firstname+' '+user.lastname)} />
+      <Avatar {...stringAvatar(user.name+' '+user.surname)} />
       {!isEditing ? (
         <div className="mb-5">
-          <h2 className="entries-display noticia-text-regular"><strong>First Name:</strong> {user.firstname}</h2>
-          <h2 className="entries-display noticia-text-regular"><strong>Last Name:</strong> {user.lastname}</h2>
+          <h2 className="entries-display noticia-text-regular"><strong>First Name:</strong> {user.name}</h2>
+          <h2 className="entries-display noticia-text-regular"><strong>Last Name:</strong> {user.surname}</h2>
+          <h2 className="entries-display noticia-text-regular"><strong>Date of birth:</strong> {user.dateOfBirth}</h2>
           <h2 className="entries-display noticia-text-regular"><strong>Email:</strong> {user.email}</h2>
-          <h2 className="entries-display noticia-text-regular"><strong>Phone:</strong> {user.phone}</h2>
-          <h2 className="entries-display noticia-text-regular"><strong>Address:</strong> {user.address}</h2>
+          <h2 className="entries-display noticia-text-regular"><strong>Phone:</strong> {user.tel}</h2>
+          <h2 className="entries-display noticia-text-regular"><strong>Sex:</strong> {user.sex}</h2>
           <Button className="profile-button mt-8" onClick={() => setIsEditing(true)}>Edit</Button>
         </div>
       ) : (
@@ -112,8 +133,8 @@ function UserProfile() {
             <Form.Label>First Name</Form.Label>
             <Form.Control
               type="text"
-              name="firstname"
-              value={user.firstname}
+              name="name"
+              value={user.name}
               onChange={handleInputChange}
               required
             />
@@ -122,8 +143,8 @@ function UserProfile() {
             <Form.Label>Last Name</Form.Label>
             <Form.Control
               type="text"
-              name="lastname"
-              value={user.lastname}
+              name="surname"
+              value={user.surname}
               onChange={handleInputChange}
               required
             />
@@ -142,21 +163,12 @@ function UserProfile() {
             <Form.Label>Phone</Form.Label>
             <Form.Control
               type="text"
-              name="phone"
-              value={user.phone}
+              name="tel"
+              value={user.tel}
               onChange={handleInputChange}
             />
           </Form.Group>
-          <Form.Group controlId="address">
-            <Form.Label>Address</Form.Label>
-            <Form.Control
-              type="text"
-              name="address"
-              className="mb-3"
-              value={user.address}
-              onChange={handleInputChange}
-            />
-          </Form.Group>
+
           <Button type="submit" className="mr-4 submit-button">Save</Button>
           <Button type="button" className="cancel-button" onClick={() => setIsEditing(false)}>Cancel</Button>
         </Form>

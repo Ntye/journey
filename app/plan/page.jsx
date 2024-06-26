@@ -5,6 +5,7 @@ import { Button, Card, Form} from 'react-bootstrap';
 import "../styles/plan.css";
 import { GlobalContext } from '../context/GlobalContext';
 import { useRouter } from 'next/navigation'
+import axiosInstance from '@/components/axios'
 
 export default function Home() {
 	const [showForm, setShowForm] = useState(false);
@@ -12,19 +13,22 @@ export default function Home() {
 	const [currentTripIndex, setCurrentTripIndex] = useState(null);
 	const [trips, setTrips] = useState([]);
 	const [formData, setFormData] = useState({
+
 		departure: '',
 		arrival: '',
 		time: '',
-		date: '',
+		dateDepart: '',
 		price: '',
+		nbPlaces: '',
 		repeat: false,
 		repeatType: 0,
-		endDate: ''
+		villeArrivee: ""
 	});
 
 	const router = useRouter();
 
 	const { isAuthenticated, setIsAuthenticated } = useContext(GlobalContext);
+
 
 
 	useEffect(() => {
@@ -37,6 +41,23 @@ export default function Home() {
 		}
 		login()
 	}, [])
+
+	useEffect(() => {
+		const fetchInterurbanTrips = async () => {
+
+			axiosInstance.get('/voyage/admin')
+			.then(response => {
+				const data = response.data
+				setTrips(data)
+			})
+			.catch(error => {
+				console.error(error);
+			})
+		};
+
+		fetchInterurbanTrips();
+	}, []);
+
 
 	const handleFormSubmit = (event) => {
 		event.preventDefault();
@@ -54,15 +75,16 @@ export default function Home() {
 		}
 
 		setFormData({
-			destination: '',
+			lieuArrivee: '',
 			departure: '',
-			arrival: '',
-			time: '',
-			date: '',
+			heureDepart: '',
+			dateDepart: '',
 			price: '',
+			nbPlaces: '',
 			repeat: false,
-			repeatType: 0,
-			endDate: ''
+			frequency: 0,
+			villeArrivee:"",
+			villeDepart: ''
 		});
 		setShowForm(false);
 	};
@@ -72,15 +94,15 @@ export default function Home() {
 		setIsEditing(false);
 		setCurrentTripIndex(null);
 		setFormData({
-			destination: '',
-			departure: '',
-			arrival: '',
-			time: '',
-			date: '',
+			lieuArrivee: '',
+			lieuDepart: '',
+			heureDepart: '',
+			dateDepart: '',
 			price: '',
+			nbPlaces: '',
 			repeat: false,
-			repeatType: 0,
-			endDate: ''
+			frequency: 0,
+			villeDepart: ''
 		});
 	};
 
@@ -98,8 +120,7 @@ export default function Home() {
 				...formData,
 				repeat: checked,
 				repeatType: 0,
-				repeatDays: [],
-				endDate: ''
+				repeatDays: []
 			});
 		} else {
 			setFormData({ ...formData, [name]: checked });
@@ -134,10 +155,34 @@ export default function Home() {
 							<Form.Control
 								name="departure"
 								type="text"
-								placeholder="Starting Point"
-								value={formData.departure}
+								placeholder="Starting City"
+								value={formData.villeDepart}
 								className="mb-3"
-								onChange={(e) => setFormData({ ...formData, departure: e.target.value })}
+								onChange={(e) => setFormData({ ...formData, villeDepart: e.target.value })}
+								required
+							/>
+						</Form.Group>
+
+						<Form.Group controlId="formDeparture">
+							<Form.Control
+								name="departure"
+								type="text"
+								placeholder="Ending City"
+								value={formData.villeArrivee}
+								className="mb-3"
+								onChange={(e) => setFormData({ ...formData, villeArrivee: e.target.value })}
+								required
+							/>
+						</Form.Group>
+
+						<Form.Group controlId="formDeparture">
+							<Form.Control
+								name="departure"
+								type="text"
+								placeholder="Starting Point"
+								value={formData.lieuDepart}
+								className="mb-3"
+								onChange={(e) => setFormData({ ...formData, lieuDepart: e.target.value })}
 								required
 							/>
 						</Form.Group>
@@ -147,9 +192,21 @@ export default function Home() {
 								name="arrival"
 								type="text"
 								placeholder="End Point"
-								value={formData.arrival}
+								value={formData.lieuArrivee}
 								className="mb-3"
-								onChange={(e) => setFormData({ ...formData, arrival: e.target.value })}
+								onChange={(e) => setFormData({ ...formData, lieuArrivee: e.target.value })}
+								required
+							/>
+						</Form.Group>
+
+						<Form.Group controlId="formTime">
+							<Form.Control
+								name="nbPlaces"
+								type="number"
+								placeholder="Number of Places"
+								value={formData.nbPlaces}
+								className="mb-3"
+								onChange={(e) => setFormData({ ...formData, nbPlaces: e.target.value })}
 								required
 							/>
 						</Form.Group>
@@ -159,9 +216,9 @@ export default function Home() {
 								name="time"
 								type="time"
 								placeholder="Departure Time"
-								value={formData.time}
+								value={formData.heureDepart}
 								className="mb-3"
-								onChange={(e) => setFormData({ ...formData, time: e.target.value })}
+								onChange={(e) => setFormData({ ...formData, nbPlaces: e.target.value })}
 								required
 							/>
 						</Form.Group>
@@ -171,9 +228,9 @@ export default function Home() {
 							<Form.Label className="noticia-text-regular ml-1 -mb-2">Date</Form.Label>
 							<Form.Control
 								type="date"
-								name="date"
-								value={formData.date}
-								onChange={(e) => setFormData({ ...formData, date: e.target.value })}
+								name="dateDepart"
+								value={formData.dateDepart}
+								onChange={(e) => setFormData({ ...formData, dateDepart: e.target.value })}
 								required
 							/>
 						</Form.Group>
@@ -205,7 +262,7 @@ export default function Home() {
 									<Form.Label className="noticia-text-regular ml-1 -mb-2">Repeat Sequence</Form.Label>
 									<Form.Select
 										name="repeatType"
-										value={formData.repeatType}
+										value={formData.frequency}
 										onChange={handleRepeatTypeChange}
 									>
 										<option value="1">Daily</option>
@@ -236,19 +293,19 @@ export default function Home() {
 					<Card key={index} className="mb-3 card-size">
 						<Card.Body className="flex flex-row justify-between">
 							<div>
-								<Card.Title>{trip.arrival}</Card.Title>
-								<Card.Subtitle className="mb-2 text-muted">Departure: {trip.departure}</Card.Subtitle>
-								<Card.Subtitle className="mb-2 text-muted">Price: {trip.price} FCFA</Card.Subtitle>
-								<Card.Subtitle className="mb-2 text-muted">Time: {trip.time}</Card.Subtitle>
-								<Card.Subtitle className="mb-2 text-muted">Date: {trip.date}</Card.Subtitle>
+								<Card.Title>{trip.lieuArrivee}</Card.Title>
+								<Card.Subtitle className="mb-2 text-muted">Departure: {trip.lieuDepart}</Card.Subtitle>
+								<Card.Subtitle className="mb-2 text-muted">Price: {Math.ceil(trip.price / 10) * 10} FCFA</Card.Subtitle>
+								<Card.Subtitle className="mb-2 text-muted">Time: {trip.heureDepart}</Card.Subtitle>
+								<Card.Subtitle className="mb-2 text-muted">Date: {trip.dateDepart}</Card.Subtitle>
 								{trip.repeat && (
 									<div>
 										<Card.Subtitle className="mb-2 text-muted">Repeat: {trip.repeatType}</Card.Subtitle>
-										{trip.repeatType === 'weekly' && (
+										{trip.frequency === 'weekly' && (
 											<Card.Subtitle className="mb-2 text-muted">Repeat
 												Days: {trip.repeatDays.join(', ')}</Card.Subtitle>
 										)}
-										{trip.repeatType === 'custom' && (
+										{trip.frequency === 'custom' && (
 											<Card.Subtitle className="mb-2 text-muted">Repeat
 												Days: {trip.repeatDays.join(', ')}</Card.Subtitle>
 										)}
